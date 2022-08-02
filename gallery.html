@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <title>GalleryAstronomy</title>  
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ 
+    <!--stylesheet link-->
+     <link href="css/style.css" rel="stylesheet">
+   <!--adding icon library stylesheet-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">  
+
+<script>
+    //JS for cookie to join club
+        function setCookie(){
+		 var Name=document.getElementById("Name").value;
+		document.cookie="Name=" + escape(Name);
+		
+		 var email=document.getElementById("email").value;
+		document.cookie="email=" + escape(email);
+		alert(unescape(document.cookie));
+		
+		return true;
+	} 
+            function displayData(){
+                    if(typeof(Storage)!=="undefined"){ 
+            localStorage.setItem("Name", Name);
+            localStorage.setItem("email", email);
+        }
+        return true;
+        }
+
+</script>
+ </head>
+ <body>
+    
+<div class="grid-container">
+    <header>
+    <div class="headContainer">
+    <img src="images/galaxyTitle.png" alt="Galaxy" style="width:100%">
+     <!---Image source "https://www.pexels.com/" specified as copyright free-->    
+    <div class="centred"><h1>Astronomy Ireland</h1> </div>
+    </div>
+    </header>  
+       <!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
+
+<!-- Top Navigation Menu -->
+<div class="hamburger">
+  
+  <a href="gallery.html" class="active">Gallery</a>
+    <div id="myLinks">
+  <a href="index.html" >Home</a>
+  <a href="events.html">Events</a>
+  <a href="careers.html">Careers</a>
+  <a href="question.html">Ask A Question</a>
+  <a href="style.html">Style</a>    
+  <a href="validation.html">Validation</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+       </div>        
+        
+    
+   
+          <nav class="navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a class="active" href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="question.html">Ask A Question</a></li>
+                        <li><a href="style.html">Style</a></li>    
+                        <li><a href="validation.html">Validation</a></li>
+
+
+                    </ul>  
+          </nav>
+<h2>Gallery</h2>
+    
+<div class="gallery">
+
+<p><img src="images/gallery1.jpg" alt="Space" id="pic"></p>  
+    <p>Move the cursor over the images you wish to preview.</p>
+   
+    <p>
+         <a href="#" id="1"><img src="images/thumbnails/thumbnail1.jpg" alt="earth from space"></a> 
+         <a href="#" id="2"><img src="images/thumbnails/thumbnail2.jpg" alt="man on moon"></a> 
+         <a href="#" id="3"><img src="images/thumbnails/thumbnail3.jpg" alt="Italy from space"></a>  
+        
+         
+    </p>
+    
+
+    <p>
+        <a href="#" id="4"><img src="images/thumbnails/thumbnail4.jpg" alt="Rover of Mars"></a> 
+        <a href="#" id="5"><img src="images/thumbnails/thumbnail5.jpg" alt="Rocket"></a> 
+        <a href="#" id="6"><img src="images/thumbnails/thumbnail6.jpg" alt="Astranout in space"></a> 
+
+    </p>
+        <p>
+        <a href="#" id="7"><img src="images/thumbnails/thumbnail7.jpg" alt="stong henge"></a> 
+        <a href="#" id="8"><img src="images/thumbnails/thumbnail8.jpg" alt="view of Saturn in space"></a> 
+        <a href="#" id="9"><img src="images/thumbnails/thumbnail9.jpg" alt="Sun eclipse in space."></a> 
+         <!---all gallery images and thumbnail images are sourced from https://www.pexels.com/ and are copyright free-->
+    </p>
+    <p>
+          <a href="#" id="prevLink">Previous |</a>
+          <a href="#" id="nextLink">Next</a>
+    </p>
+</div>
+ <nav class= "follow">
+            <h5>Follow us:</h5>
+                         <ul>
+             <li><a href="#" class="fa fa-facebook"></a></li>
+             <li><a href="#" class="fa fa-instagram"></a>
+             <li><a href= "#" class="fa fa-twitter"></a></li>
+             <!---all social media icons sourced from  https://www.w3schools.com/ and are copyright free-->
+             </ul>
+
+     </nav>
+        
+    <form class= "club" name="form1" action="confirmation.html" method="post" onSubmit= "return setCookie();" >
+            <h5>Join Our Club!</h5>
+             <p> <label for="Name">Name:</label>	
+             <input type="text" name="Name" id="Name"></p>
+             <p><label for="email">Email:</label>	
+            <input type="email" name="email" id="email">  </p>
+            <p> <input type="submit" value="Submit" id="submit">
+          
+    </form>
+    
+         <section class= "contact">
+            <h5>Contact</h5>
+            <p>103 O'Connell St.</p>
+            <p>Limerick</p>
+            <p>V94 PT63</p>
+            <p>(01)578543</p>
+    </section>    
+  
+<script>
+    
+ <!--event listener for hamburge menu-->   
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+ <!--event listener for image view in gallery--> 
+    var currentImg=1;
+
+        document.getElementById("1").addEventListener("mouseover",loadImage);
+        document.getElementById("2").addEventListener("mouseover",loadImage);
+        document.getElementById("3").addEventListener("mouseover",loadImage);
+        document.getElementById("4").addEventListener("mouseover",loadImage);
+        document.getElementById("5").addEventListener("mouseover",loadImage);
+        document.getElementById("6").addEventListener("mouseover",loadImage);
+        document.getElementById("7").addEventListener("mouseover",loadImage);
+        document.getElementById("8").addEventListener("mouseover",loadImage);
+        document.getElementById("9").addEventListener("mouseover",loadImage);
+
+
+        document.getElementById("prevLink").addEventListener("click",prevLink);
+        document.getElementById("nextLink").addEventListener("click",nextLink);
+
+function loadImage()
+    
+        {   imgNum=this.id;
+             document.getElementById("pic").src=
+                 "images/gallery"+imgNum+".jpg";
+             currentImg=imgNum;
+        }
+    function nextLink()
+        {
+         if(currentImg==9)
+                    {
+                        document.getElementById("pic").src=
+                            "images/gallery1.jpg"; 
+                            currentImg=1;
+                    }
+                else
+                    {
+                        currentImg++;
+                        document.getElementById("pic").src=
+                            "images/gallery"+currentImg+".jpg";
+                    }  
+
+        }
+    function prevLink(){
+                if(currentImg==1)
+                    {
+                        document.getElementById("pic").src=
+                            "images/gallery9.jpg";
+                        currentImg=9;
+                    }
+                else
+                {
+                    currentImg--;
+                    document.getElementById("pic").src=
+                        "images/gallery"+currentImg+".jpg";
+                }
+            }
+
+   window.addEventListener("load", displayData);
+
+    
+</script>
+    
+        
+        </div>
+     </body>
+   
+</html>
+     
+     

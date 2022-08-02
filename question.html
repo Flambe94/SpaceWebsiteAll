@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <title>FormAstronomy</title>  
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <!--stylesheet link-->
+    <link href="css/style.css" rel="stylesheet">
+   <!--adding icon library stylesheet-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">  
+    <!--stylesheet for google font family import-->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+<script>
+     function validateForm() {
+         var age_val= document.getElementById("age").value;
+            var emailqu_val= document.getElementById("email").value;
+            if (validate()==true && validateEmail(email_val)==true && isNumeric(age_val)==true)
+            return true;
+            else
+            return false;
+     }
+     function validate(){
+            var name_val=document.getElementById("name").value;
+            
+            if (name_val==null || name_val=="")
+                {
+                alert("name is a required field");
+                return false; 
+                }
+            var age_val=document.getElementById("age").value;
+            
+            if (age_val==null || age_val=="")
+                {
+                alert("age is a required field");
+                return false; 
+                }
+          
+          var emailqu_val=document.getElementById("emailqu").value;
+            
+            if (emailqu_val==null || emailqu_val=="")
+                {
+                alert("email is a required field");
+                return false; 
+                }
+         
+           var retype_val=document.getElementById("retype").value;
+            
+            if (retype_val==null || retype_val=="")
+                {
+                alert("Retype email is a required field");
+                return false; 
+             
+                }
+
+         var retypeSame_val=document.getElementById("retype").value;
+         if(retypeSame_val!=emailqu_val){
+             alert("Please ensure email addresses are the same.");
+             return false;
+                }
+         var emailqu_val=document.getElementById("emailqu").value;
+         if (validateEmail(emailqu_val)==false) 
+            {alert("email is invalid");
+				return false;
+                }
+         var age_val=document.getElementById("age").value;
+         if (isNumeric(age_val)==false)
+                { 
+				alert("age needs to be numeric");
+				return false;
+                }
+
+         return true;
+     }
+     
+	function isNumeric(numericValue){
+		var numberPattern = /^[0-9]+$/;
+		return numberPattern.test(numericValue);
+	}
+ 	function validateEmail(elementValue){
+		var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		return emailPattern.test(elementValue);
+		
+	}
+    //JS for cookie to join club
+    	function setCookie(){
+		 var Name=document.getElementById("Name").value;
+		document.cookie="Name=" + escape(Name);
+		
+		 var email=document.getElementById("email").value;
+		document.cookie="email=" + escape(email);
+		alert(unescape(document.cookie));
+		
+		return true;
+	}
+	        function displayData(){
+                    if(typeof(Storage)!=="undefined"){ 
+            localStorage.setItem("Name", Name);
+            localStorage.setItem("email", email);
+        }
+        return true;
+        }
+
+	
+     
+</script>
+
+ </head>   
+<body>
+  
+<div class="grid-container">
+    <header>
+    <div class="headContainer">
+    <img src="images/galaxyTitle.png" alt="Galaxy" style="width:100%">
+     <!---Image source "https://www.pexels.com/" specified as copyright free--> 
+    <div class="centred"><h1>Whelan's Spares and Services</h1> </div>
+    </div>
+    </header>  
+       <!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
+
+<!-- Top Navigation Menu -->
+<div class="hamburger">
+  <a href="question.html" class="active">Ask A Question</a>
+  <div id="myLinks">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="events.html">Events</a>
+  <a href="careers.html" >Careers</a>
+
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+       </div>        
+        
+    
+   
+          <nav class="navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a class="active" href="question.html">Ask A Question</a></li>
+                        <li><a href="style.html">Style</a></li>    
+                        <li><a href="validation.html">Validation</a></li>
+
+
+                    </ul>  
+          </nav>
+<section class= "formCentre">      
+<h2>Ask Us A Question Here:</h2>
+ <form id="form1" name="form1" method="get" onSubmit= "return validate();" >
+<p>
+    <label for="name">Full Name</label>
+    <input name="name" type="text"  id="name"  onsubmit="return textfield(name);">
+</p>
+
+<p>    
+    <label for="age">Age </label>
+    <input name="age" type="text"  id="age" onsubmit="return isNumeric(numericValue);">
+</p>
+
+<p>
+    <label for="email">Email Address</label>
+    <input type="text" name="emailqu" id="emailqu"  onsubmit="return validateEmail(elementValue);">
+</p>
+<p>
+    <label for="retype">Retype Email Address</label>
+    <input type="text" name="retype" id="retype" >
+</p>
+<p>
+    <label for="qu">Your Question</label>
+    <textarea rows="5" id="qu" maxlength="200" placeholder="200 characters max"></textarea>
+</p>
+<p>
+    <input type="submit" name="submit" id="submitqu" value="Submit">
+    <input type="reset" name="reset" id="resetqu" value="Reset">
+</p>
+    </form>        
+        
+ </section>         
+      
+    <nav class= "follow">
+            <h5>Follow us:</h5>
+                         <ul>
+             <li><a href="#" class="fa fa-facebook"></a></li>
+             <li><a href="#" class="fa fa-instagram"></a>
+             <li><a href= "#" class="fa fa-twitter"></a></li>
+             <!---all social media icons sourced from  https://www.w3schools.com/ and are copyright free-->
+             </ul>
+
+     </nav>
+        
+    <form class= "club" name="form1" action="confirmation.html" method="post" onSubmit= "return setCookie();" >
+            <h5>Join Our Club!</h5>
+             <p> <label for="Name">Name:</label>	
+             <input type="text" name="Name" id="Name"></p>
+             <p><label for="email">Email:</label>	
+            <input type="email" name="email" id="email">  </p>
+            <p> <input type="submit" value="Submit" id="submit">
+          
+    </form>
+    
+         <section class= "contact">
+            <h5>Contact</h5>
+            <p>103 O'Connell St.</p>
+            <p>Limerick</p>
+            <p>V94 PT63</p>
+            <p>(01)578543</p>
+    </section>     
+</div>
+ 
+   
+  <!--event listener for hamburger menu-->
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+       window.addEventListener("load", displayData);
+</script>
+</body> 
+
+</html>
